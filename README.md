@@ -4,7 +4,7 @@
 
 This application is a starter kit to assist you in designing the UI of your Laravel project. If you find this template suitable, you can simply proceed with adding other features you want to build. You don't need to hassle with setting up page layouts from scratch, which might consume a significant amount of your project development time. Good luck with your endeavor!
 
-## UI
+## Front End
 
 - [Tailwind CSS](https://tailwindcss.com/docs/installation).
 - [daisyUI](https://daisyui.com/components/).
