@@ -4,13 +4,11 @@
 
 This application is a starter kit to assist you in designing the UI of your Laravel project. If you find this template suitable, you can simply proceed with adding other features you want to build. You don't need to hassle with setting up page layouts from scratch, which might consume a significant amount of your project development time. Good luck with your endeavor!
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## UI
+
+- [Tailwind CSS](https://tailwindcss.com/docs/installation).
+- [daisyUI](https://daisyui.com/components/).
+- [Vue js](https://vuejs.org/).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
