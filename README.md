@@ -24,5 +24,8 @@ Before moving on to the installation stage, please take note of the required dev
 - git clone https://gitlab.com/pramono6236/monokit-laravel-vue-daisyui.git wathever-your-project-name
 - cd the project
 - composer install
+- php artisan migrate
 - npm install
 - npm run dev (dev mode) or npm run build (prod mode)
+- php artisan serve
+- open [http://localhost:8000](http://localhost:8000)
