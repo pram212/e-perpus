@@ -14,7 +14,7 @@ const menus = [
         icon: '<i class="fas fa-book w-5"></i>',
         submenu: [
             {
-                name: "Daftar Buku",
+                name: "Daftar Pustaka",
                 url: "/book",
                 icon: '<i class="fas fa-book w-5"></i>',
             },
@@ -31,18 +31,23 @@ const menus = [
         icon: '<i class="fas fa-retweet w-5"></i>',
     },
     {
-        name: "pengguna",
+        name: "Keanggotaan",
+        url: "/member",
+        icon: '<i class="fas fa-id-card w-5"></i>',
+    },
+    {
+        name: "setting",
         url: "/user",
-        icon: '<i class="fas fa-key w-5"></i>',
+        icon: '<i class="fas fa-cog w-5"></i>',
         submenu: [
             {
-                name: "Daftar Anggota",
-                url: "/users",
-                icon: '<i class="fas fa-users w-5 w-5"></i>',
+                name: "profil perpustakaan",
+                url: "/setting/company-profile",
+                icon: '',
             },
             {
-                name: "Daftar Admin",
-                url: "/users",
+                name: "admin",
+                url: "/admin",
                 icon: '<i class="fas fa-users w-5 w-5"></i>',
             },
             {
@@ -65,7 +70,7 @@ const isEmtySubmenu = (submenu) => {
     <aside class="bg-base-100 w-80 h-full">
         <ul class="menu p-4 w-80 capitalize font-extrabold bg-base-100 min-h-screen text-base-content">
 
-            <h2 class="menu-title">{{$page.props.app_name}}</h2>
+            <h2 class="menu-title uppercase">{{$page.props.app_name}}</h2>
             <div class="divider my-0"></div>
             <li v-for="(menu, i) in menus" :key="i">
                 <!-- submenu 1 -->
@@ -99,7 +104,7 @@ const isEmtySubmenu = (submenu) => {
                 <Link v-else :href="menu.url" :class="{ active: $page.url.includes(menu.url) }">
                 <span v-html="menu.icon"></span> {{ menu.name }}</Link>
             </li>
-            <li class="my-5"></li>
+            <!-- <li class="my-5"></li> -->
         </ul>
     </aside>
 

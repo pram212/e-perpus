@@ -20,24 +20,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::when(
-            request('search'),
-            fn ($book) =>
-            $book
-                ->where('title', 'like', '%'  .  request('search') . '%')
-                ->orWhere('isbn', 'like', '%'  .  request('search') . '%')
-                ->orWhere('author', 'like', '%'  .  request('search') . '%')
-                ->orWhere('publisher', 'like', '%'  .  request('search') . '%')
-                ->orWhere('published_at', 'like', '%'  .  request('search') . '%')
-                ->orWhereHas('catalog', fn (Builder $query) => $query->where('name', 'like', '%'  .  request('search') . '%'))
-            )
-            ->with(['catalog:id,name'])
-            ->paginate(10)
-            ->withQueryString();
 
-        $requests = request()->all();
-
-        return Inertia::render('Book/IndexBook', compact('books', 'requests'));
+        return Inertia::render('Book/IndexBook');
     }
 
     /**

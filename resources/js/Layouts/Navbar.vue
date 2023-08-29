@@ -9,13 +9,20 @@ import LateNoftification from "@/Components/LateNoftification.vue";
 <template>
     <div class="navbar py-0 shadow-md bg-base-100">
         <div class="flex-1 gap-x-5">
-            <label for="my-drawer" class="btn btn-ghost drawer-button">
+            <button class="btn btn-ghost hidden lg:block" @click.prevent="$emit('sidebarToggle')">
+                <HamburgerVue />
+            </button>
+
+            <label for="my-drawer" class="btn btn-ghost drawer-button lg:hidden">
                 <HamburgerVue />
             </label>
+            <span class="my-auto hidden md:flex">
+                {{ $page.props.company_profile.name }}
+            </span>
         </div>
         <div class="flex-none gap-2">
             <LateNoftification></LateNoftification>
-            
+
             <ThemeControlVue></ThemeControlVue>
 
             <div class="dropdown dropdown-end">
@@ -38,4 +45,4 @@ import LateNoftification from "@/Components/LateNoftification.vue";
                 </ul>
             </div>
         </div>
-</div></template>
+    </div></template>

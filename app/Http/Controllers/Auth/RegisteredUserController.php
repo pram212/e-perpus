@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class RegisteredUserController extends Controller
 {
@@ -66,6 +68,9 @@ class RegisteredUserController extends Controller
             'phone'=> $request->phone,
             'address'=> $request->address
         ]);
+
+        $role = Role::create(['name' => 'member']);
+        $user->assignRole($role);
 
         event(new Registered($user));
 

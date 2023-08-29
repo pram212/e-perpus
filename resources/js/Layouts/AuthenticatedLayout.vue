@@ -4,12 +4,14 @@ import { themeChange } from "theme-change";
 import { Link, usePage } from "@inertiajs/vue3";
 import Navbar from "@/Layouts/Navbar.vue";
 import Sidebar from "@/Layouts/Sidebar.vue";
+import { ref } from "vue";
 
-const notificationType = usePage().props.flash.type;
-const notificationMessage = usePage().props.flash.message;
+const notificationType = usePage().props.flash.type
+const notificationMessage = usePage().props.flash.message
+const sidebarOpen = ref(true)
 
 onMounted(() => {
-    themeChange(false);
+    themeChange(false)
 
     if (usePage().props.flash.type) {
         if (notificationType == 'success') {
@@ -27,11 +29,14 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="drawer">
+    <!-- // The root container -->
+    <div class="drawer" :class="{'lg:drawer-open' : sidebarOpen }"> 
+        <!-- // A hidden checkbox to toggle the visibility of the sidebar -->
         <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+        <!-- // All your page content goes here -->
         <div class="drawer-content max-h-full overflow-x-scroll">
             <!-- Navbar -->
-            <Navbar></Navbar>
+            <Navbar @sidebar-toggle="sidebarOpen=!sidebarOpen"></Navbar>
             <!-- Navbar End -->
 
             <!-- PAGE CONTENT -->
@@ -60,15 +65,16 @@ onMounted(() => {
             <!-- PAGE CONTENT END -->
         </div>
 
-        <!-- Sidebar -->
+        <!-- // Sidebar wrapper -->
         <div
             class="drawer-side h-full"
             style="scroll-behavior: smooth; scroll-padding-top: 5rem"
         >
+            <!-- // A dark overlay that covers the whole page when the drawer is open -->
             <label for="my-drawer" class="drawer-overlay"></label>
 
             <Sidebar />
         </div>
-        <!-- Sidebar End -->
+        <!-- // Sidebar wrapper End -->
     </div>
 </template>

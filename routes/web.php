@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\CompanyProfileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -43,6 +44,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/getcatalog', [BookController::class, 'getCatalog']);
     Route::get('/getbook', [BookController::class, 'getBooks']);
+    Route::group(['prefix'=>'setting','as'=>'setting.'], function () {
+        Route::resource('company-profile', CompanyProfileController::class);
+    });
 });
 
 require __DIR__.'/auth.php';

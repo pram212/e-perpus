@@ -75,7 +75,7 @@ onMounted(() => {
                             <span @click="search = ''; getBooks();" v-if="search" class="text-error cursor-pointer"><i class="fas fa-times"></i></span>
                         </label>
                         
-                        <table class="table table-sm mt-2 border">
+                        <table class="table table-sm mt-2 border border-base-300">
                             <thead class="uppercase bg-base-300">
                                 <tr>
                                     <th colspan="2" class="text-center">Judul</th>
