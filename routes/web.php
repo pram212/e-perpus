@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -36,6 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('users', UserController::class);
+    Route::resource('book', BookController::class);
+    Route::resource('catalog', CatalogController::class);
+
+    Route::get('/getcatalog', [BookController::class, 'getCatalog']);
+    Route::get('/getbook', [BookController::class, 'getBooks']);
 });
 
 require __DIR__.'/auth.php';

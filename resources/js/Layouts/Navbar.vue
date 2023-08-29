@@ -2,6 +2,7 @@
 import HamburgerVue from "@/Components/Hamburger.vue";
 import ThemeControlVue from "@/Components/ThemeControl.vue";
 import { Link } from "@inertiajs/vue3";
+import LateNoftification from "@/Components/LateNoftification.vue";
 
 </script>
 
@@ -13,17 +14,16 @@ import { Link } from "@inertiajs/vue3";
             </label>
         </div>
         <div class="flex-none gap-2">
+            <LateNoftification></LateNoftification>
+            
             <ThemeControlVue></ThemeControlVue>
 
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost avatar">
                     {{ $page.props.auth.user.name }}
-                   
+
                 </label>
-                <ul
-                    tabindex="0"
-                    class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-                >
+                <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                     <li>
                         <h1 class="capitalize bg-base-300">
                             {{ $page.props.auth.user.name }}
@@ -38,5 +38,4 @@ import { Link } from "@inertiajs/vue3";
                 </ul>
             </div>
         </div>
-    </div>
-</template>
+</div></template>

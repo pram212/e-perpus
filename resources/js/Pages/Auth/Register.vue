@@ -11,6 +11,9 @@ const form = useForm({
     email: '',
     password: '',
     password_confirmation: '',
+    nirm: '',
+    phone: '',
+    address: '',
 });
 
 const submit = () => {
@@ -22,81 +25,63 @@ const submit = () => {
 
 <template>
     <GuestLayout>
+
         <Head title="Register" />
 
         <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
+            <h5 class="uppercase text-center">registrasi</h5>
+            <div class="divider"></div>
 
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.name"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
-
-                <InputError class="mt-2" :message="form.errors.name" />
+            <div class="form-control w-full">
+                <label class="label"><span class="label-text">Nama Lengkap <span class="text-error">*</span></span></label>
+                <input type="text" v-model="form.name"  class="input input-sm input-bordered w-full" />
+                <label class="label font-semibold" v-if="form.errors.name"><span class="label-text-alt text-error">{{form.errors.name}}</span></label>
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
+            <div class="form-control w-full">
+                <label class="label"><span class="label-text">Email <span class="text-error">*</span></span></label>
+                <input type="email" v-model="form.email" autocomplete="username" class="input input-sm input-bordered w-full" />
+                <label class="label font-semibold" v-if="form.errors.email"><span class="label-text-alt text-error">{{form.errors.email}}</span></label>
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="new-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password" />
+            <div class="form-control w-full">
+                <label class="label"><span class="label-text">Password <span class="text-error">*</span></span></label>
+                <input type="password" v-model="form.password" autocomplete="new-password"  class="input input-sm input-bordered w-full" />
+                <label class="label font-semibold" v-if="form.errors.password"><span class="label-text-alt text-error">{{form.errors.password}}</span></label>
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
+            <div class="form-control w-full">
+                <label class="label"><span class="label-text">Konfirmasi Password <span class="text-error">*</span></span></label>
+                <input type="password" v-model="form.password_confirmation" autocomplete="new-password"  class="input input-sm input-bordered w-full" />
+                <label class="label font-semibold" v-if="form.errors.password_confirmation"><span class="label-text-alt text-error">{{form.errors.password_confirmation}}</span></label>
+            </div>
 
-                <TextInput
-                    id="password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password_confirmation"
-                    required
-                    autocomplete="new-password"
-                />
+            <div class="form-control w-full">
+                <label class="label"><span class="label-text">No Telepon</span></label>
+                <input type="tel" v-model="form.phone" class="input input-sm input-bordered w-full" />
+                <label class="label font-semibold" v-if="form.errors.phone"><span class="label-text-alt text-error">{{ form.errors.phone }}</span></label>
+            </div>
 
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
+            <div class="form-control w-full">
+                <label class="label"><span class="label-text">NIRM</span></label>
+                <input type="text" v-model="form.nirm"  class="input input-sm input-bordered w-full" />
+                <label class="label font-semibold" v-if="form.errors.nirm"><span class="label-text-alt text-error">{{ form.errors.nirm }}</span></label>
+            </div>
+           
+            <div class="form-control w-full">
+                <label class="label"><span class="label-text">Alamat Lengkap</span></label>
+                <textarea v-model="form.address"  class="textarea textarea-bordered w-full" />
+                <label class="label font-semibold" v-if="form.errors.address"><span class="label-text-alt text-error">{{ form.errors.address }}</span></label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <Link
-                    :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Already registered?
+                <Link :href="route('login')"
+                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Already registered?
                 </Link>
 
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </PrimaryButton>
+                <button class="btn btn-primary btn-sm ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">Daftar</button>
+                
             </div>
         </form>
     </GuestLayout>

@@ -4,16 +4,54 @@ import { computed, onMounted } from 'vue'
 
 const menus = [
     {
-        name: "home",
+        name: "Dashboard",
         url: "/dashboard",
         icon: '<i class="fas fa-home w-5"></i>',
     },
-   
     {
-        name: "User Management",
-        url: "/users",
-        icon: '<i class="fas fa-users w-5 w-5"></i>',
-    }
+        name: "Pustaka",
+        url: null,
+        icon: '<i class="fas fa-book w-5"></i>',
+        submenu: [
+            {
+                name: "Daftar Buku",
+                url: "/book",
+                icon: '<i class="fas fa-book w-5"></i>',
+            },
+            {
+                name: "Daftar Katalog",
+                url: "/catalog",
+                icon: '<i class="fas fa-bar w-5"></i>',
+            },
+        ]
+    },
+    {
+        name: "Peminjaman",
+        url: "/order",
+        icon: '<i class="fas fa-retweet w-5"></i>',
+    },
+    {
+        name: "pengguna",
+        url: "/user",
+        icon: '<i class="fas fa-key w-5"></i>',
+        submenu: [
+            {
+                name: "Daftar Anggota",
+                url: "/users",
+                icon: '<i class="fas fa-users w-5 w-5"></i>',
+            },
+            {
+                name: "Daftar Admin",
+                url: "/users",
+                icon: '<i class="fas fa-users w-5 w-5"></i>',
+            },
+            {
+                name: "hak akses",
+                url: "/users",
+                icon: '<i class="fas fa-users w-5 w-5"></i>',
+            },
+        ]
+    },
 ];
 
 
@@ -27,8 +65,8 @@ const isEmtySubmenu = (submenu) => {
     <aside class="bg-base-100 w-80 h-full">
         <ul class="menu p-4 w-80 capitalize font-extrabold bg-base-100 min-h-screen text-base-content">
 
+            <h2 class="menu-title">{{$page.props.app_name}}</h2>
             <div class="divider my-0"></div>
-            <h2 class="menu-title">MELHKIOR APP</h2>
             <li v-for="(menu, i) in menus" :key="i">
                 <!-- submenu 1 -->
                 <details v-if="isEmtySubmenu(menu.submenu)" :open="$page.url.includes(menu.url)">
