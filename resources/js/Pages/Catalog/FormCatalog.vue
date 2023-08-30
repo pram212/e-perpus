@@ -13,12 +13,12 @@ const form = useForm({
 
 const submit = () => {
     if (props.catalog) {
-        form.put(route("catalog.update", props.catalog.id), {
+        form.put(route("pustaka.catalog.update", props.catalog.id), {
             preserveState: false,
             // onFinish: () => form.reset(),
         });
     } else {
-        form.post(route("catalog.store"), {
+        form.post(route("pustaka.catalog.store"), {
             preserveState: false,
             onFinish: () => form.reset(),
         });
@@ -61,7 +61,7 @@ const submit = () => {
                             Simpan
                         </button>
 
-                        <Link :href="route('catalog.index')" class="btn btn-sm btn-secondary">Kembali</Link>
+                        <Link :href="route('pustaka.catalog.index')" class="btn btn-sm btn-secondary">Kembali</Link>
                     </div>
                 </form>
             </div>

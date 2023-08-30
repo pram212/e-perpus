@@ -46,6 +46,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'app_name' => config('app.name'),
             'company_profile' => CompanyProfile::first(),
+            'late_refund_notification' => getLateReunds(),
         ]);
     }
 }

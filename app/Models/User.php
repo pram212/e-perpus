@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Master\Book;
+use App\Models\Transaction\BookLoan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -47,5 +50,22 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'book_loans')
+            ->withPivot('start_date', 'end_date')
+            ->withTimestamps();
+    }
+
+    public function loans()
+    {
+        return $this->hasMany(BookLoan::class)->where('refund', false);
+    }
+
+    public function bookLoans() 
+    {
+        return $this->hasMany(User::class);
     }
 }

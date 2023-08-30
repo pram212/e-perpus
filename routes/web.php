@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookLoanController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CompanyProfileController;
 use App\Http\Controllers\ProfileController;
@@ -39,14 +41,27 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('users', UserController::class);
-    Route::resource('book', BookController::class);
-    Route::resource('catalog', CatalogController::class);
+    
+    Route::group(['prefix'=>'pustaka','as'=>'pustaka.'], function () {
+        Route::resource('book', BookController::class);
+        Route::resource('catalog', CatalogController::class);
+    });
 
     Route::get('/getcatalog', [BookController::class, 'getCatalog']);
     Route::get('/getbook', [BookController::class, 'getBooks']);
+    
     Route::group(['prefix'=>'setting','as'=>'setting.'], function () {
         Route::resource('company-profile', CompanyProfileController::class);
     });
+    
+    Route::group(['prefix'=>'transaction','as'=>'transaction.'], function () {
+        Route::resource('loan', BookLoanController::class);
+        Route::get('/getbookoptions', [BookLoanController::class, 'getBookOpitons']);
+        Route::get('/getuseroptions', [BookLoanController::class, 'getUserOpitons']);
+        Route::get('/getbookloan', [BookLoanController::class, 'getBookLoans']);
+    });
+
+    Route::resource('anggota', AnggotaController::class);
 });
 
 require __DIR__.'/auth.php';

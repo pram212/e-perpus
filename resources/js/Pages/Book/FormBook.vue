@@ -22,13 +22,13 @@ const form = useForm({
 
 const submit = () => {
     if (props.book) {
-        form.put(route("book.update", props.book.id), {
+        form.put(route("pustaka.book.update", props.book.id), {
             preserveState: false,
             preserveScroll: true,
             // onFinish: () => form.reset(),
         });
     } else {
-        form.post(route("book.store"), {
+        form.post(route("pustaka.book.store"), {
             preserveState: false,
             preserveScroll: true,
             // onFinish: () => form.reset(),
@@ -152,7 +152,7 @@ const fetchLanguages = async (query) => {
                             Simpan
                         </button>
 
-                        <Link :href="route('book.index')" class="btn btn-sm btn-secondary">Kembali</Link>
+                        <Link :href="route('pustaka.book.index')" class="btn btn-sm btn-secondary">Kembali</Link>
                     </div>
                 </form>
             </div>

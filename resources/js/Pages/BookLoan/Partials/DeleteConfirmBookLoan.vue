@@ -1,11 +1,11 @@
 <script setup>
 import { Link, router } from "@inertiajs/vue3";
 const props = defineProps({
-    catalog_id : null,
+    book_id : null,
 })
 
 function deleteCatalog() {
-    router.delete('/pustaka/catalog/' + props.catalog_id, {
+    router.delete('/book/' + props.book_id, {
         preserveState: false
     })
 }

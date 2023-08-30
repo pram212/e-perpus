@@ -10,50 +10,53 @@ const menus = [
     },
     {
         name: "Pustaka",
-        url: null,
+        url: '/pustaka',
         icon: '<i class="fas fa-book w-5"></i>',
         submenu: [
             {
-                name: "Daftar Pustaka",
-                url: "/book",
+                name: "Daftar Buku",
+                url: "/pustaka/book",
                 icon: '<i class="fas fa-book w-5"></i>',
             },
             {
                 name: "Daftar Katalog",
-                url: "/catalog",
+                url: "/pustaka/catalog",
                 icon: '<i class="fas fa-bar w-5"></i>',
             },
         ]
     },
     {
-        name: "Peminjaman",
-        url: "/order",
+        name: "Transaksi",
+        url: "/transaction",
         icon: '<i class="fas fa-retweet w-5"></i>',
+        submenu : [
+            {
+                name: "Peminjaman Buku",
+                url: "/transaction/loan",
+            },
+        ]
     },
     {
         name: "Keanggotaan",
-        url: "/member",
+        url: "/anggota",
         icon: '<i class="fas fa-id-card w-5"></i>',
     },
     {
         name: "setting",
-        url: "/user",
+        url: "/setting",
         icon: '<i class="fas fa-cog w-5"></i>',
         submenu: [
             {
                 name: "profil perpustakaan",
                 url: "/setting/company-profile",
-                icon: '',
             },
             {
                 name: "admin",
                 url: "/admin",
-                icon: '<i class="fas fa-users w-5 w-5"></i>',
             },
             {
                 name: "hak akses",
                 url: "/users",
-                icon: '<i class="fas fa-users w-5 w-5"></i>',
             },
         ]
     },

@@ -61,7 +61,7 @@ onMounted(() => {
             <div class="bg-base-100 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
                     <div class="flex justify-between">
-                        <Link class="btn btn-sm btn-primary" :href="route('book.create')"><i class="fas fa-plus"></i>  Baru</Link>
+                        <Link class="btn btn-sm btn-primary" :href="route('pustaka.book.create')"><i class="fas fa-plus"></i>  Baru</Link>
                         <button class="btn btn-sm btn-success"><i class="fas fa-upload"></i>  Import</button>
                     </div>
 
@@ -82,7 +82,7 @@ onMounted(() => {
                                     <th>ISBN</th>
                                     <th>Katalog</th>
                                     <th>Penerbit</th>
-                                    <th>tahun terbit</th>
+                                    <th>Stok</th>
                                     <th class="text-center" style="width: 20%;">
                                         opsi
                                     </th>
@@ -95,11 +95,11 @@ onMounted(() => {
                                     <td class="capitalize">{{ book.isbn }}</td>
                                     <td class="capitalize">{{ book.catalog.name }}</td>
                                     <td class="capitalize">{{ book.publisher }}</td>
-                                    <td class="capitalize">{{ book.published_at }}</td>
+                                    <td class="capitalize">{{ book.stock }}</td>
                                     <td class="space-x-1 text-center">
-                                        <Link :href="route('book.edit', book.id)" class="btn btn-sm btn-info">edit</Link>
+                                        <Link :href="route('pustaka.book.edit', book.id)" class="btn btn-xs btn-info">edit</Link>
                                         <label @click="deleteId = book.id" for="delete-confirm"
-                                            class="btn btn-sm btn-error">hapus</label>
+                                            class="btn btn-xs btn-error">hapus</label>
                                     </td>
                                 </tr>
                                 <tr v-if="!books.total">
